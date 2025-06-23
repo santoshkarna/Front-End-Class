@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Method Demo2</title>
+</head>
+
+<body onload="pageLoaded()">
+    <button onclick="sayHello()">Click Me</button>
+    <br>
+    <form onsubmit="return validateForm()">
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <button type="submit">submit</button>
+    </form>
+
+    <div style="width: 200px;height: 100px; background-color: lightblue;" onmouseover="hoverIn(this)"
+        onmouseout="hoverOut(this)">
+        Hover Over Me!
+    </div>
+    <br>
+    <select onchange="showColors(this.value)">
+        <option value="">Select a color</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+    </select>
+    <br>
+    <input type="text" onfocus="focusInput(this)" onblur="blurInput(this)" placeholder="Focus on me">
+    <br>
+    <input type="text" id="keyboardInput" placeholder="Type here..." onkeydown="keyDown()" onkeyup="keyUp()">
+    <br>
+    <div style="height: 300px;overflow-y: scroll;" id="scrollBox" onscroll="scrolling()">
+        <div style="height: 600px;">Scroll Me</div>
+    </div>
+</body>
+<script>
+    function sayHello() {
+        console.log('Hello!You have clicked the button.')
+    }
+
+    function validateForm() {
+        const name = document.getElementById("name").value;
+        if (name === "") {
+            alert("Please Enter your name: ")
+            return false;
+        }
+        alert("Form Submitted Successfully!! ");
+        return true;
+    }
+
+    function hoverIn(element) {
+        element.style.backgroundColor = "orange";
+    }
+
+    function hoverOut(element) {
+        element.style.backgroundColor = "lightblue";
+    }
+
+    function showColors(color) {
+        if (color !== "") {
+            alert("You selected: " + color);
+        }
+    }
+
+    function focusInput(element) {
+        element.style.backgroundColor = "lightgreen";
+    }
+
+    function blurInput(element) {
+        element.style.backgroundColor = "";
+    }
+    function keyDown() {
+        console.log("Key is being pressed down");
+    }
+    function keyUp() {
+        console.log("Key is being pressed up");
+    }
+
+    function pageLoaded() {
+        alert("Page has fully loaded!");
+    }
+    function scrolling() {
+        console.log("You are scrolling the box....")
+    }
+</script>
+
+</html>

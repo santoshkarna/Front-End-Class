@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Demo</title>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHello = function () {
+                console.log("Hi I am " + this.name);
+                console.log("and I am " + this.age + " years old.")
+            }
+        }
+
+        //creating an object using the constructor
+        var person = new Person("Raju", 22);
+        person.sayHello();
+    </script>
+</head>
+
+<body>
+    <h1>This is constructor Demo</h1>
+</body>
+
+</html>

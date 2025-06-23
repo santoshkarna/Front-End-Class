@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timers Demo</title>
+</head>
+<body>
+    <h1>This is Timers and Intervals Demo</h1>
+</body>
+<script>
+    //setTimeout(function, deleyInMilliSeconds, param1, param2.....);
+    setTimeout(() => {
+        console.log("Hello after 2 seconds")
+    }, 2000);
+     //setTimeout(function,intervalInMilliSeconds, param1, param2.....);
+    //  setInterval(() => {
+    //     console.log("Repeats every 1 second");
+    //  }, 1000);
+
+     let timeoutId = setTimeout(() => {
+        console.log("This will not run")
+     }, 3000);
+     clearTimeout(timeoutId);
+
+    //  let count = 0;
+    //  let intervalId = setInterval(() => {
+    //     console.log("Repeating: ", ++count);
+    //     if(count === 3){
+    //         clearInterval(intervalId);
+    //     }
+    //  }, 1000);
+
+     let countdown = 5;
+     let timer = setInterval(() => {
+        console.log(countdown);
+        countdown--;
+        if(countdown < 0){
+            clearInterval(timer)
+            console.log("Go!")
+        }
+     }, 1000);
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Storage Demo</title>
+</head>
+<body>
+    <h1>This is browser storage Demo</h1>
+    <p>There are 3 types of storage: </p>
+    <ul>
+        <li>Cookies</li>
+        <li>Local Storage</li>
+        <li>Session Storage</li>
+    </ul>
+</body>
+<script>
+    //set
+    document.cookie = "username=User1; expires=Fri, 20 Jun 2025 23:59:59 GMT; path=/";
+    //read
+    console.log(document.cookie);
+
+    //store data
+    localStorage.setItem("name", "Ramesh");
+
+    //retrieve data
+    console.log(localStorage.getItem("name"));
+
+    //remove data
+    localStorage.removeItem("name");
+
+    //clear all data
+    localStorage.clear();
+
+
+    sessionStorage.setItem("sessionName", "Temporary Data");
+    console.log(sessionStorage.getItem("sessionName"));
+
+</script>
+</html>

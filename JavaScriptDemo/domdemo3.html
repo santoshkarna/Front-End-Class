@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Demo3</title>
+</head>
+
+<body>
+    <ul id="myList"></ul>
+
+    <p id="p1">Paragraph 1</p>
+    <p id="p2">Paragraph 2</p>
+
+    <div id="container">
+        <p id="removeMe">Remove this</p>
+    </div>
+
+    <button id="btn">Click me</button>
+    <p id="msg"></p>
+
+    <div id="parent">
+      <p>First</p>
+      <p>Second</p>
+    </div>
+
+</body>
+<script>
+    //insert
+    const newItem = document.createElement("li");
+    newItem.textContent = "New List Item";
+    document.getElementById('myList').appendChild(newItem);
+
+    //insert
+    const newPara = document.createElement("p");
+    newPara.textContent = "Inserted Paragraph";
+    const parent = document.body;
+    const reference = document.getElementById("p2");
+    parent.insertBefore(newPara, reference);
+
+    //remove
+    const removeElement = document.getElementById("removeMe");
+    removeElement.remove();
+
+    //add event
+    document.getElementById("btn").addEventListener("click", function () {
+       document.getElementById("msg").textContent = "Button was clicked";
+    });
+
+    //access elemnt
+    const prnt = document.getElementById("parent");
+    console.log(prnt.children)
+    console.log(prnt.firstElementChild.textContent);
+    console.log(prnt.lastElementChild.textContent)
+</script>
+
+</html>

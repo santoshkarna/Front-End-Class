@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors Demo</title>
+    <style>
+        /* * {
+            text-align: center;
+        } */
+
+        p {
+            color: brown;
+        }
+
+        li {
+            color: green;
+        }
+
+        .test1 {
+            text-align: center;
+        }
+
+        .test2 {
+            text-align: right;
+        }
+
+        #idattr {
+            color: red;
+        }
+
+        div strong {
+            color: red;
+        }
+
+        div>strong {
+            color: blue;
+        }
+
+        h1+p {
+            color: green;
+        }
+
+        p:first-child {
+            color: aqua;
+        }
+
+        a:link {
+            color: blueviolet;
+        }
+
+        a:visited {
+            color: red;
+        }
+
+        p:hover {
+            color: aquamarine;
+        }
+
+        p:active {
+            color: blueviolet;
+        }
+
+        input:focus {
+            border: medium dotted red;
+        }
+
+        p:lang(fr) {
+            color: dimgray
+        }
+
+        p::first-line {
+            font-size: larger;
+        }
+
+        h5:first-letter {
+            /* font: italic bold 2em; */
+            color: yellow;
+        }
+
+        h3:before {
+            content: url(./nature.jpeg);
+        }
+
+        h4:after {
+            content: url(./nature.jpeg);
+        }
+        h6[title]{
+            color: red;
+        }
+        p[title="demo title1"]{
+            color: darkgreen;
+        }
+        p[lang|=en]{
+            color: darkgoldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="test1 ">What is CSS selector?</h1>
+    <p class="test1">When a style is declared, there must be a method of selecting the elements that will receive the
+        style.</p>
+    <p class="test2">This is the role of selector</p>
+    <p id="idattr">To apply id selector, we need use id attribute of an element.</p>
+    <div>
+        <p>The red style <strong>has been applied to this element.</strong></p>
+    </div>
+    <p>The red style <strong>has been applied to this element.</strong></p>
+    <div>This is child selectors demo<strong>An element that is child of another element.</strong></div>
+
+    <hr>
+    <h2>Types of Selectors: </h2>
+    <ul>
+        <li>Universal Selector (*): All elements</li>
+        <li>Type Selector (name): the name of an element(tag name)</li>
+        <li>Class Selector(.classvalue): The value of an element's class attribute</li>
+        <li>ID Selectors(#idvalue): the value of an element's id attribute</li>
+        <li>Descendant Selectors(ancestor descendant): An element is descendant of another element</li>
+        <li>Child Selectors(parent > child): An element that is child of another element</li>
+        <li>Adjacent Siblings Selectors(first + second): An element that immediately follows a sibling element.</li>
+        <li>Pseudo-class(:first-child): An element that is a first child.</li>
+        <li>Pseudo-class(:link): A link that has not been visited</li>
+        <li>Pseudo-class(:visited): A link that has been visited</li>
+        <li>Pseudo-class(:hover): An element when a mouse cursor is hovering over it.</li>
+        <li>Pseudo-class(:active): An active element.</li>
+        <li>Pseudo-class(:focus): An element with focus.</li>
+        <li>Pseudo-class(:lang): An element with a specific language.</li>
+        <li>Pseudo-class(first-line): The first line of an element.</li>
+        <li>Pseudo-class(:first-letter): The first letter of first line of text.</li>
+        <li>Pseudo-class(:before): Allows content to be generated before the specified element.</li>
+        <li>Pseudo-class(:after): Allows content to be generated after the specified element.</li>
+        <li>Attribute Selector(Atrributename): An element with a specific attribute set.</li>
+        <li>Attribute Selector(Atrributename=AttributeValue): An element with a specific attribute set to a specific value.</li>
+        <li>Attribute Selector(Atrributename|=AttributeValue): An element with a specific attribute  is
+             either equal to a specific value or begins with a specific value followed by a hyphen.</li>
+    </ul>
+    <hr>
+    <h1>Adjacent Siblings Selectors(first + second): An element that immediately follows a sibling element.</h1>
+    <p>Adjacent Siblings Selectors(first + second): An element that immediately follows a sibling element.</p>
+    <p>Adjacent Siblings Selectors(first + second): An element that immediately follows a sibling element.</p>
+    <hr>
+    <div>
+        <p>Pseudo-class(:first-child): An element that is a first child.</p>
+        <p>Pseudo-class(:first-child): An element that is a first child.</p>
+    </div>
+    <hr>
+    <a href="https://www.w3schools.com/">Visit W3C School Site</a>
+    <hr>
+    <a href="https://www.w3schools.com/">Visit W3C School Site</a>
+    <hr>
+    <p>Pseudo-class(:hover): An element when a mouse cursor is hovering over it.</p>
+    <hr>
+    <p>Pseudo-class(:active): An active element.</p>
+
+    <hr>
+    <form action="inlinecss.html" method="post">
+        <p>
+            Text: <input type="text" name="texttest" title="text input sample">
+            Password: <input type="password" name="passtest" size="10" maxlength="10" value="" title="password sample">
+            <input type="submit" value="Send">
+        </p>
+    </form>
+
+    <hr>
+    <p lang="en">Pseudo-class(:lang): An element with a specific language.</p>
+    <p lang="en-au">Pseudo-class(:lang): An element with a specific language.</p>
+    <p lang="fr">Pseudo-class(:lang): An element with a specific language.</p>
+
+    <hr>
+    <h5>Pseudo-class(:first-letter): The first letter of first line of text.</h5>
+    <hr>
+    <h3>Pseudo-class(:before): Allows content to be generated before the specified element.</h3>
+    <hr>
+    <h4>Pseudo-class(:after): Allows content to be generated after the specified element.</h3>
+    <hr>
+    <h6 title="demo title">Attribute Selector(Atrributename): An element with a specific attribute set.</h6>
+    <h6>Attribute Selector(Atrributename): An element with a specific attribute set.</h6>
+    <hr>
+    <p title="demo title1">Attribute Selector(Atrributename=AttributeValue): An element with a specific attribute set to a specific value.</p>
+    <p title="demo title2">Attribute Selector(Atrributename=AttributeValue): An element with a specific attribute set to a specific value.</p>
+    <hr>
+    <p lang="en">Attribute Selector(Atrributename|=AttributeValue): An element with a specific attribute  is either equal to a specific value or begins with a specific value followed by a hyphen.</p>
+    <p lang="en-au">Attribute Selector(Atrributename|=AttributeValue): An element with a specific attribute  is either equal to a specific value or begins with a specific value followed by a hyphen.</p>
+    <p lang="fr">Attribute Selector(Atrributename|=AttributeValue): An element with a specific attribute  is either equal to a specific value or begins with a specific value followed by a hyphen.</p>
+
+</body>
+
+</html>

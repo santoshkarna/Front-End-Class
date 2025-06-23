@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception Demo</title>
+</head>
+
+<body>
+    <h1>This is Exception Demo</h1>
+</body>
+<script>
+    // try {
+    //     let result = x + 5;//x is not defined (ReferenceError)
+    //     console.log(result)
+    // } catch (error) {
+    //     console.log("An error occured: ", error.message);
+    // }
+
+    // try {
+    //     let num = 10;
+    //     let r = num / 0;
+    //     console.log(r);
+    // } catch (error) {
+    //     console.log("Error: ", error.message);
+    // } finally {
+    //     console.log("This will always run.")
+    // }
+    // console.log("end of code")
+
+    function divide(a, b) {
+        if (b === 0) {
+            throw new Error("Can not divide by zero");
+        }
+        return a / b;
+    }
+
+    try {
+        console.log(divide(4, 0));
+    } catch (e) {
+        console.log("Custom Error: ", e.message);
+    }
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Demo6</title>
+</head>
+
+<body>
+    <form>
+        <label>
+            Gender:
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+        </label>
+        <br>
+        <button type="button" onclick="showSelectedGender()">Show Selectd gender</button>
+    </form>
+    <p id="result"></p>
+</body>
+<script>
+    function showSelectedGender() {
+        const genders = document.getElementsByName("gender");
+        for (let i = 0; i < genders.length; i++) {
+            if (genders[i].checked) {
+                document.getElementById('result').textContent = "Selected: " + genders[i].value;
+            }
+        }
+    }
+   // document.getElementById('')
+   //document.getElementsByTagName('')
+   //document.getElementsByClassName('')
+   //document.getElementsByName('')
+   //document.querySelector('')
+   //document.querySelectorAll('')
+
+   //access, modify(insert, remove, update)
+   //change attr
+</script>
+
+</html>

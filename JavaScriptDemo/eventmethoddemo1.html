@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Method Demo1</title>
+</head>
+
+<body>
+    <button id="myBtn">Click Me</button>
+    <input type="text" id="myInput" name="myInput">
+    <select name="colorSelect" id="colorSelect">
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+    </select>
+    <br>
+    <form id="myForm">
+        <label>Enter Name</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <div id="hoverBox" style="width: 200px;height: 100px;background-color: lightblue;">
+        Hover me!
+    </div>
+
+    <input type="text" id="keyboardInput" placeholder="Type here...">
+
+    <div style="height: 300px;overflow-y: scroll;" id="scrollBox">
+        <div style="height: 1000px;">Scroll Me</div>
+    </div>
+</body>
+<script>
+    //element.addEventListener("event", function);
+    document.getElementById("myBtn").addEventListener("click", function () {
+        alert("Button Clicked");
+    });
+
+    document.getElementById("myInput").addEventListener("input", function (event) {
+        console.log("Input value: ", event.target.value);
+    })
+
+    document.getElementById("colorSelect").addEventListener("change", function (e) {
+        alert("You selected: " + e.target.value)
+    })
+
+    document.getElementById("myForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Form Submitted")
+    })
+
+    const box = document.getElementById("hoverBox");
+    box.addEventListener("mouseover", function () {
+        box.style.backgroundColor = "yellow";
+    })
+    box.addEventListener("mouseout", function () {
+        box.style.backgroundColor = "lightblue";
+    })
+
+    const input = document.getElementById("keyboardInput");
+    input.addEventListener("keydown", (event) => {
+        console.log("Key down: ", event.key);
+    });
+    input.addEventListener("keyup", (event) => {
+        console.log("Key up: ", event.key);
+    });
+    window.addEventListener("resize", () => {
+        console.log("Window resize width: " + window.innerWidth);
+    })
+    document.getElementById('scrollBox').addEventListener("scroll", () => {
+        console.log("Scrolling....")
+    });
+</script>
+
+</html>

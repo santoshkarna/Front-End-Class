@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Demo4</title>
+</head>
+<body>
+    <h2>Heading One</h2>
+    <h2>Heading Two</h2>
+    <button onclick="highlightHeadings()">Highlight</button>
+</body>
+<script>
+    function highlightHeadings () {
+        const headings = document.getElementsByTagName("h2");
+        console.log(headings);
+        for(let i = 0; i < headings.length; i++){
+            headings[i].style.color = "blue";
+        }
+    }
+</script>
+</html>

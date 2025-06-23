@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyncAsync Demo 1</title>
+</head>
+<body>
+    <h1>This Synchronous and Asynchronous Demo 1</h1>
+</body>
+<script>
+    synchronous
+    console.log("1");
+    console.log("2");
+    console.log("3");
+    console.log("4");
+
+    //asynchronous
+    console.log("1");
+    setTimeout(() => console.log("2"), 1000);
+    console.log("3");
+
+    //callbacks
+    function greet(name, callback) {
+        console.log("Hi, " + name);
+        callback();
+    }
+
+    function sayHello() {
+        console.log("Hello, Good Evening");
+    }
+    greet('Ram', sayHello);
+
+    const promise = new Promise((resolve, reject) => {
+        const success = false;
+        if (success) {
+            resolve("Success!");
+        } else {
+            reject("Failed!");
+        }
+    });
+    promise.then(res => {
+        console.log("Resolved: ", res)
+    })
+        .catch((error) => {
+            console.log("Rejected: ", error)
+        });
+
+
+    function doTask(time, task) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log(task);
+                resolve();
+            }, time);
+        })
+    }
+
+    doTask(1000, "Task 1")
+        .then(() => doTask(1000, "Task 2"))
+        .then(() => doTask(1000, "Task 3"));
+
+
+    function getData() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Data received");
+            }, 1000);
+        })
+    }
+
+    async function fetchData() {
+        console.log("Fetching...");
+        const result = await getData();
+        console.log(result);
+    }
+
+    fetchData();
+</script>
+
+</html>

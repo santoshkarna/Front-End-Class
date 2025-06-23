@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Demo5</title>
+</head>
+<body>
+    <p class="note">Note 1</p>
+    <p class="note">Note 2</p>
+    <p class="note">Note 3</p>
+    <button onclick="markNotes()">Mark Notes</button>
+</body>
+<script>
+    function markNotes (){
+        const notes = document.getElementsByClassName("note");
+        for(let i = 0; i < notes.length; i++){
+            notes[i].style.backgroundColor = "yellow";
+        }
+    }
+</script>
+</html>

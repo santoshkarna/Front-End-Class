@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM demo2</title>
+</head>
+<body>
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+    </ul>
+    <p id="txt">Original Text</p>
+    <img id="img1" src="nature.jpeg">
+    <p id="styled">Style Me</p>
+</body>
+   <script>
+        const listItem = document.querySelectorAll("li");
+        listItem.forEach(item => item.style.fontWeight = "bold");
+
+        //change text
+        document.getElementById('txt').textContent = "Update Text";
+        //change attribute
+        document.getElementById('img1').src = "nature2.jpg";
+        //change style
+        document.getElementById('styled').style.color = "blue";
+        document.getElementById("styled").style.fontSize = "20px"
+    </script>
+</html>

@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>User Managemant</h3>
+    <a routerLink="/app/users/new">Add User</a>
+</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td>
+                <a class="btn btn-sm btn-info me-2" [routerLink]="['/app/users/edit', user.id]">Edit</a>
+                <button class="btn btn-sm btn-denger" (click)="deleteUser(user.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

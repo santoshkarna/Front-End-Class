@@ -1,0 +1,26 @@
+<form [formGroup] ="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+      <input type="email"  placeholder="email" formControlName="email">
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <small  class="error" *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</small>
+         <small  class="error" *ngIf="loginForm.get('email')?.errors?.['email']">Invalid Email</small>
+         <small  class="error" *ngIf="loginForm.get('email')?.errors?.['forbiddenName']">
+          The email can not contail 'admin'.
+         </small>
+      </div>
+  </div>
+  <div>
+    <input type="password" placeholder="Password" formControlName="password">
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <small  class="error" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</small>
+         <small  class="error" *ngIf="loginForm.get('password')?.errors?.['minlength']">Minimum 6 character.</small>
+         <small  class="error" *ngIf="loginForm.get('password')?.errors?.['nonUnique']">The password is already taken.</small>
+      </div>
+  </div>
+  <div>
+    <button type="submit">Login</button>
+    <button type="button" (click)="onReset()">Reset</button>
+    <button type="button" (click)="onSetValue()">SetValue</button>
+    <button type="button" (click)="onPatchValue()">PatchValue</button>
+  </div>
+</form>

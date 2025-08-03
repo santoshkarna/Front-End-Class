@@ -1,0 +1,10 @@
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 2px;
+}
+ 
+.btn-success{
+  color: blue;
+  background-color: blueviolet;
+}

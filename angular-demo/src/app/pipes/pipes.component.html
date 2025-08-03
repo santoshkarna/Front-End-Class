@@ -1,0 +1,27 @@
+<div>
+    <p>Pipes in Angular are used to transform data in templates.</p>
+    <p>They are declared using the pipe (|) symbol in template expressions.</p>
+    <!-- <p>{{value | pipeName}}</p> -->
+     <p>Why Use Pipes?</p>
+     <ul>
+        <li>Format data for display</li>
+        <li>Simplify complex logic in templates</li>
+        <li>Enhance readability</li>
+     </ul>
+</div>
+
+<div>
+    <p>Today: {{today | date}} (Default)  </p>
+    <p>Short: {{today | date: 'short'}} </p>
+    <p>Custom: {{today | date: 'fullDate'}} </p>
+    <p>Upper: {{'angular' | uppercase}}</p>
+    <p>Upper: {{'angular' | uppercase}}</p>
+    <p>Lower: {{'ANGULAR' | lowercase}}</p>
+    <p>{{'welcome to angular pipes' | titlecase}}</p>
+    <p>USD: {{price | currency: 'USD'}}</p>
+    <p>NPR: {{price | currency: 'NPR':'symbol':'1.2-2'}}</p>
+    <p>{{0.75 | percent}}</p>
+    <p>{{124.5678 | number:'1.1-2'}}</p>
+    <pre>{{user | json}}</pre>
+    <p>{{'AngularFramework' | slice:0:7}}</p>
+</div>

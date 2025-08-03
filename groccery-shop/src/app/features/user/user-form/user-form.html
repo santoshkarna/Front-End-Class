@@ -1,0 +1,20 @@
+<h3>{{isEdit ? 'Edit User' : 'Add New User'}}</h3>
+<form (ngSubmit)="save()">
+    <div class="mb-3">
+        <label>Name</label>
+        <input [(ngModel)]="user.name" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input [(ngModel)]="user.email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Role</label>
+        <select [(ngModel)]="user.role" name="role" class="form-select">
+            <option>Admin</option>
+            <option>Customer</option>
+        </select>
+    </div>
+    <button class="btn btn-success me-2" type="submit">Save</button>
+    <a class="btn btn-secondary" routerLink="/app/users">cancel</a>
+</form>

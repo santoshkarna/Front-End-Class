@@ -1,0 +1,92 @@
+ /* * {
+            text-align: center;
+        } */
+
+ p {
+     color: brown;
+ }
+
+ li {
+     color: green;
+ }
+
+ .test1 {
+     text-align: center;
+ }
+
+ .test2 {
+     text-align: right;
+ }
+
+ #idattr {
+     color: red;
+ }
+
+ div strong {
+     color: red;
+ }
+
+ div>strong {
+     color: blue;
+ }
+
+ h1+p {
+     color: green;
+ }
+
+ p:first-child {
+     color: aqua;
+ }
+
+ a:link {
+     color: blueviolet;
+ }
+
+ a:visited {
+     color: red;
+ }
+
+ p:hover {
+     color: aquamarine;
+ }
+
+ p:active {
+     color: blueviolet;
+ }
+
+ input:focus {
+     border: medium dotted red;
+ }
+
+ p:lang(fr) {
+     color: dimgray
+ }
+
+ p::first-line {
+     font-size: larger;
+ }
+
+ h5:first-letter {
+     /* font: italic bold 2em; */
+     color: yellow;
+ }
+
+ h3:before {
+     content: url(./nature.jpeg);
+ }
+
+ h4:after {
+     content: url(./nature.jpeg);
+ }
+
+ h6[title] {
+     color: red;
+ }
+
+ p[title="demo title1"] {
+     color: darkgreen;
+ }
+
+ p[lang|=en] {
+     color: darkgoldenrod;
+ }

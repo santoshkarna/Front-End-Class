@@ -1,0 +1,11 @@
+<form [formGroup]="phoneForm">
+    <div formArrayName="phones">
+        <div *ngFor="let phone of phones.controls; let i = index">
+            <input [formControlName]="i" placeholder="Phone Number">
+            <button (click)="removePhone(i)">Remove</button>
+        </div>
+        <div>
+            <button (click)="addPhone()">Add Phone</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,90 @@
+<div>
+    <p>Angular components combine class logic, metadata and html templates</p>
+</div>
+<div>
+    <p>To create component we use this command: </p><br>
+    <p>
+        <strong>ng generate component greetings</strong>
+        or
+        <strong>ng g c greetings</strong>
+    </p>
+</div>
+<hr>
+<div>
+    <h2>Binding Syntax:</h2>
+    <ol>
+        <li>Interpolation</li>
+        <li>Property Binding</li>
+        <li>Event Binding</li>
+    </ol>
+    <p>1. Iterpolation: {{username}}</p>
+    <p>2. Property Binding: </p>
+    <img [src]="imageUrl">
+    <p>3.Event Binding: </p>
+    <button (click)="greets()">Click Me</button>
+</div>
+<hr>
+<h2>Directives:</h2>
+<div>
+    Directives are classes in Angular that allow us to manipulate the DOM
+    or extend the behavior of elements and components.
+    There are three types of directives:
+    1.Component(technically a directive with a template)
+    2.Structural directives: modify layout
+    3.Attribute Directives: modify appearance/behavior
+</div>
+<div>
+    <strong>Structural directives: </strong>
+    <p>Common Structural Directives: </p>
+    <ul>
+        <li>*ngIf => Adds/removes an element based on condition</li>
+        <li>*ngFor => Iterates over a collection</li>
+        <li>*ngSwitch => Switch-case conditional rendering</li>
+    </ul>
+</div>
+
+<div>
+    <strong>*ngIf example</strong>
+    <button (click)="show = !show">Toggle</button>
+    <p *ngIf="show">Now you can see me!!</p>
+</div>
+<div>
+    <strong>*ngFor example</strong>
+    <ul>
+        <li *ngFor="let item of items">{{item}}</li>
+    </ul>
+</div>
+<strong>*ngSwitch example</strong>
+<div [ngSwitch]="device">
+    <p *ngSwitchCase="'TV'">Television Selected</p>
+    <p *ngSwitchCase="'AC'">Air Condition Selected</p>
+    <p *ngSwitchDefault>No device Selected</p>
+</div>
+<hr>
+<div>
+    <strong>Attribute directives: </strong>
+    <p>These change the behavior of elements(e.g. styles, classes)</p>
+    <p>Common Attribute Directives: </p>
+    <ul>
+        <li>ngClass: Add/remove classes</li>
+        <li>ngStyle: Apply inline styles</li>
+        <li>[disabled]: Enable/disable HTMl inputs</li>
+    </ul>
+
+    <p [ngClass] = "{'highlight': isHighLighted}">
+        This text may be highlighted
+    </p>
+    <button (click)="isHighLighted = !isHighLighted">Toggle HighLight</button>
+</div>
+
+<div>
+    <p [ngStyle] ="{'font-size.px': fontSize, 'color': color}">
+        Style Text
+    </p>
+    <!-- <button (click)="fontSize += 2">Increase Font</button> -->
+</div>
+
+<div>
+    <h2>Custom Directives:</h2>
+    <p appHoverHighLight>Hover over <menu></menu></p>
+</div>

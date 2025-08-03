@@ -1,0 +1,21 @@
+<h3>{{isEdit ? 'Edit User' : 'Add New Product'}}</h3>
+<form (ngSubmit)="save()">
+    <div class="mb-3">
+        <label>Name</label>
+        <input [(ngModel)]="product.name" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Category</label>
+        <input [(ngModel)]="product.category" name="category" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Price</label>
+        <input [(ngModel)]="product.price" name="price" type="number" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Stock</label>
+        <input [(ngModel)]="product.stock" name="stock" type="number" class="form-control" required>
+    </div>
+    <button class="btn btn-success me-2" type="submit">Save</button>
+    <a class="btn btn-secondary" routerLink="/app/products">cancel</a>
+</form>

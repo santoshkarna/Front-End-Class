@@ -1,0 +1,4 @@
+<div *ngIf="alertService.visible" class="alert alert-{{alertService.type}} alert-dismissible fase show" role="alert">
+    {{alertService.message}}
+    <button type="button" class="btn-close" (click)="alertService.clear()"></button>
+</div>

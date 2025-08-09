@@ -3,6 +3,7 @@ package com.example.groccery.service;
 import com.example.groccery.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -15,4 +16,6 @@ public interface UserService {
     void delete(Long id);
 
     User update(Long id, User user);
+
+    Optional<User> findByEmail(String email);
 }

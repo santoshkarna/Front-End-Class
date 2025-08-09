@@ -17,11 +17,21 @@ export class UserList implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.users = this.userService.getAll();
+    this.loadUsers()
   }
 
   deleteUser(id: number) {
-    this.userService.delete(id);
-    this.users = this.userService.getAll();
+    if (confirm('Are you sure to delete this user?')) {
+      this.userService.delete(id).subscribe(() => this.loadUsers());
+    }
+  }
+
+  loadUsers() {
+    this.userService.getAll().subscribe({
+      next: (res) => (
+        this.users = res
+      ),
+      error: (err) => console.error("Failed to load users ", err)
+    });
   }
 }

@@ -18,13 +18,21 @@ export class ProductList implements OnInit {
 
 
   ngOnInit(): void {
-    this.products = this.productService.getAll();
+    this.loadProducts()
   }
 
   deleteProduct(id: number) {
-    this.productService.delete(id);
-    this.products = this.productService.getAll();
+    if (confirm('Are you sure to delete this product?')) {
+      this.productService.delete(id).subscribe(() => this.loadProducts());
+    }
 
+  }
+
+  loadProducts() {
+    this.productService.getAll().subscribe({
+      next: (res) => (this.products = res),
+      error: (err) => console.error('Failed to load products', err)
+    })
   }
 
 }

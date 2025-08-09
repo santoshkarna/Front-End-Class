@@ -2,20 +2,35 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <h3 class="text-center mb-4">Login</h3>
-            <div *ngIf="error" class="allert alert-danger">{{error}}</div>
-            <form (ngSubmit)="login()">
+            <h3 class="text-center mb-4">{{ isRegistering ? 'Register' : 'Login' }}</h3>
+
+            <form (ngSubmit)="isRegistering ? register() : login()">
+                <div *ngIf="isRegistering" class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" [(ngModel)]="name" name="name" class="form-control" required>
+                </div>
+
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control" required>
+                    <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control" required>
                 </div>
+
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control"
+                    <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control"
                         required>
                 </div>
-                <button class="btn btn-primary w-100" type="submit">Login</button>
+
+                <button class="btn btn-primary w-100" type="submit">
+                    {{ isRegistering ? 'Register' : 'Login' }}
+                </button>
             </form>
+
+            <div class="text-center mt-3">
+                <a href="#" (click)="toggleForm()">
+                    {{ isRegistering ? 'Already have an account? Login' : 'New user? Register here' }}
+                </a>
+            </div>
         </div>
     </div>
 </div>

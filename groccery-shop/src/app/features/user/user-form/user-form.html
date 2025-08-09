@@ -8,6 +8,10 @@
         <label>Email</label>
         <input [(ngModel)]="user.email" name="email" class="form-control" required>
     </div>
+    <div *ngIf="!isEdit" class="mb-3">
+        <label>Password</label>
+        <input [(ngModel)]="user.password" name="password" type="password" class="form-control" required>
+    </div>
     <div class="mb-3">
         <label>Role</label>
         <select [(ngModel)]="user.role" name="role" class="form-select">

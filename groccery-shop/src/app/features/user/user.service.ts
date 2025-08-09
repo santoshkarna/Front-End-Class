@@ -1,36 +1,35 @@
 import { Injectable } from "@angular/core";
 import { User } from "./user.model";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
 
-    private users: User[] = [
-        { id: 1, name: 'Alice', email: 'alice@example.com', role: 'Admin' },
-        { id: 2, name: 'Bob', email: 'bob@example.com', role: 'Customer' }
-    ];
+    private apiUrl = 'http://localhost:8080/api/users';
 
-    getAll(): User[] {
-        return [...this.users]
+    constructor(private http: HttpClient){}
+
+    getAll(): Observable<User[]> {
+        return this.http.get<User[]>(this.apiUrl);
     }
 
-    getById(id: number): User | undefined {
-        return this.users.find(u => u.id === id);
+    getById(id: number): Observable<User>{
+        return this.http.get<User>(`${this.apiUrl}/${id}`)
     }
 
-    create(user: User) {
-        user.id = Date.now();
-        this.users.push(user);
+    create(user: User): Observable<User> {
+        return this.http.post<User>(this.apiUrl, user);
     }
 
-    update(id: number, updated: User) {
-        const index = this.users.findIndex(u => u.id === id);
-        if(index !== -1) this.users[index] = updated;
+    update(id: number, updated: User): Observable<User> {
+        return this.http.put<User>(`${this.apiUrl}/${id}`, updated);
     }
 
-    delete(id: number){
-        this.users = this.users.filter(u => u.id !== id);
+    delete(id: number): Observable<any>{
+        return this.http.delete(`${this.apiUrl}/${id}`)
     }
 
 }

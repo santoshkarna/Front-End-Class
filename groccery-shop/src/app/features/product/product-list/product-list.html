@@ -20,7 +20,7 @@
             <td>{{product.stock}}</td>
             <td>
                 <a class="btn btn-sm btn-info me-2" [routerLink]="['/app/products/edit', product.id]">Edit</a>
-                <button class="btn btn-sm btn-denger" (click)="deleteProduct(product.id)">Delete</button>
+                <button class="btn btn-sm btn-denger" (click)="deleteProduct(product.id!)">Delete</button>
             </td>
         </tr>
     </tbody>

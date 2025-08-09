@@ -13,7 +13,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductForm implements OnInit {
 
-  product: Product = { id: 0, name: '', category: '', price: 0, stock: 0 };
+  product: Product = { id: null, name: '', category: '', price: 0, stock: 0 };
 
   isEdit = false;
 
@@ -22,19 +22,25 @@ export class ProductForm implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      const found = this.productService.getById(id);
-      if (found) {
-        this.product = { ...found };
-        this.isEdit = true;
-      }
+      this.productService.getById(id).subscribe({
+        next: (res) => (
+          this.product = res,
+          this.isEdit = true
+        ),
+        error: (err) => console.error("Failed to get product by id: ", err, id)
+      });
     }
   }
 
   save() {
-    if (this.isEdit) {
-      this.productService.update(this.product.id, this.product);
+    if (this.isEdit && this.product.id !== null) {
+      this.productService.update(this.product.id, this.product).subscribe(() => {
+        console.log("Product updated successfully: ", this.product)
+      });
     } else {
-      this.productService.create(this.product);
+      this.productService.create(this.product as Product).subscribe(() => {
+        console.log("Product saved successfully: ", this.product)
+      });
     }
     this.router.navigate(['/app/products']);
   }
